@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-    useNEwURLParser: true,
+    useNewURLParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -29,7 +29,7 @@ connection.on("error", (err) => {
 
 app.get("/api/config", (req, res) => {
     res.json({ success: "Workout homework connected" });
-}) ;
+});
 
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
